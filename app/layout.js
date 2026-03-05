@@ -1,5 +1,6 @@
 import './globals.css';
 import NextTopLoader from 'nextjs-toploader';
+import PageTransition from './components/PageTransition';
 
 export const metadata = {
   title: 'نزهة | Nzha — منصة حجز المنتجعات والشاليهات في السعودية',
@@ -24,8 +25,18 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
-        <NextTopLoader color="#1a7a5e" showSpinner={false} height={3} />
-        {children}
+        <NextTopLoader
+          color="#1a7a5e"
+          showSpinner={false}
+          height={3}
+          speed={200}
+          crawlSpeed={150}
+          easing="ease"
+          shadow="0 0 10px #1a7a5e, 0 0 5px #1a7a5e"
+        />
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );

@@ -869,3 +869,30 @@ input[type=range]::-webkit-slider-thumb {
 .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.2; margin-bottom: 16px; color: #fff; }
 .hero-subtitle { font-size: 1.05rem; color: rgba(240,245,242,0.8); margin-bottom: 36px; line-height: 1.8; }
 
+/* ===== PAGE TRANSITIONS ===== */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition-wrapper {
+  min-height: 100%;
+  will-change: opacity, transform;
+}
+
+.page-enter-active {
+  animation: pageEnter 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Honour user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active {
+    animation: none;
+  }
+}
